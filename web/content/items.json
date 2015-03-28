@@ -1,0 +1,20 @@
+{
+  "items":{
+    "furniture":{
+      "bed":{
+        "width":200,
+        "height":100},
+      "fridge":{
+        "width":100,
+        "height":100},
+      "sink":{
+        "width":150,
+        "height":100}
+    },
+    "gadgets":{
+      "phone":{
+        "width":30,
+        "height":30}
+    }
+  }
+}

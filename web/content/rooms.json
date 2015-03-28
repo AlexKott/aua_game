@@ -1,0 +1,24 @@
+{
+  "rooms":{
+    "bedroom":{
+      "items":{
+        "bed":{
+          "posX":600,
+          "posY":250},
+        "phone":{
+          "posX":750,
+          "posY":200}
+      }
+    },
+    "kitchen":{
+      "items":{
+        "fridge":{
+          "posX":0,
+          "posY":500},
+        "sink":{
+          "posX":200,
+          "posY":0}
+      }
+    }
+  }
+}

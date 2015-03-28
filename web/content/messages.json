@@ -1,0 +1,19 @@
+{
+  "messages":{
+    "bedroom":{
+      "bed":{
+        "drankWater":"I'll go to sleep.",
+        "default":"I'm too thirsty."},
+      "phone":{
+        "default":"Who am I gonna call?"}
+    },
+    "kitchen":{
+      "fridge":{
+        "drankWater":"I'm not hungry.",
+        "default":"Let's have a glass of milk!"},
+      "sink":{
+        "drankWater":"I feel tired now.",
+        "default":"Water! Finally! That feels good."}
+    }
+  }
+}
