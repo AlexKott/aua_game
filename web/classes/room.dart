@@ -1,20 +1,37 @@
 library Room;
 
+import 'dart:html';
+import 'roomlist.dart';
+
+
 class Room {
-  int _width;
-  int _height;
+  int _width = 800;
+  int _height = 600;
   String name;
-  List items;
+  Map items;
   
-  checkGameState() {
-    
+  drawRoom(CanvasRenderingContext2D context) {
+    items.forEach((k, v) {
+      
+      int posX = items[k]['posX'];
+      int posY = items[k]['posY'];
+      
+      
+      context.fillText(k,  posX,  posY);
+     
+    });
   }
   
-  drawRoom() {
-    
-  }
   
-  clearRoom() {
-    
-  }
+  Room(String roomName) {
+    Map rooms = RoomList.roomList;
+    this.name = roomName;
+    this.items = rooms[roomName]['items'];
+    }  
 }
+
+
+
+
+
+
