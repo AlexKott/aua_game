@@ -1,20 +1,46 @@
 library Room;
 
 import 'dart:html';
-import 'roomlist.dart';
+import 'gamedata.dart';
+import 'furniture.dart';
+import 'gadget.dart';
 
 
 class Room {
-  int _width = 800;
-  int _height = 600;
   String name;
-  Map items;
+  Map roomItems;
+  List<Furniture> furniture = new List<Furniture>();
+  List<Gadget> gadgets = new List<Gadget>();
+  Map rooms = GameData.rooms;
+  
+  
+  decorateRoom() {
+    
+    // fill up with furniture
+    if (roomItems.containsKey('furniture')) {
+      roomItems['furniture'].forEach((k, v) {
+        furniture.add(new Furniture(name: k, posX: v['posX'], posY: v['posY']));
+      });
+    }
+    
+    // fill up with gadgets
+    if (roomItems.containsKey('gadgets')) {
+      roomItems['gadgets'].forEach((k, v) {
+        gadgets.add(new Gadget(name: k, posX: v['posX'], posY: v['posY']));
+      });
+    }
+    
+    print(furniture);
+    print(gadgets);
+    
+  }
+  
   
   drawRoom(CanvasRenderingContext2D context) {
-    items.forEach((k, v) {
+    roomItems.forEach((k, v) {
       
-      int posX = items[k]['posX'];
-      int posY = items[k]['posY'];
+      int posX = roomItems[k]['posX'];
+      int posY = roomItems[k]['posY'];
       
       
       context.fillText(k,  posX,  posY);
@@ -22,11 +48,11 @@ class Room {
     });
   }
   
-  
   Room(String roomName) {
-    Map rooms = RoomList.roomList;
     this.name = roomName;
-    this.items = rooms[roomName]['items'];
+    this.roomItems = rooms[roomName]['items'];
+    this.decorateRoom();
+    
     }  
 }
 
