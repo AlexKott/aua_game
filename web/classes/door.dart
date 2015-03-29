@@ -1,17 +1,21 @@
 library Door;
 
 import 'item.dart';
-import 'room.dart';
 
 class Door extends Item {
-  Room direction;
-  int width = 50;
-  int height = 50;
+  String direction;
+  int width = 100;
+  int height = 100;
   String color;
 
   changeRoom() {
 
   }
 
-  Door ();
+  Door ({String direction, int posX, int posY}) : super(posX, posY) {
+  
+    this.direction = direction;
+    this.posX = posX;
+    this.posY = posY;
+  }
 }
