@@ -72,6 +72,8 @@ abstract class Room {
   }
   
   static setRoom(String roomName) {
+    _clearRoom();
+    _items.clear();
     _name = roomName;
     _roomItems = _rooms[roomName]['items'];
     _decorateRoom();
