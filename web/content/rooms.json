@@ -1,22 +1,41 @@
 {
   "bedroom":{
     "items":{
-      "bed":{
-        "posX":600,
-        "posY":250},
-      "phone":{
-        "posX":750,
-        "posY":200}
+      "furniture":{
+        "bed":{
+          "posX":600,
+          "posY":250}
+      },
+      "gadgets":{
+        "phone":{
+          "posX":750,
+          "posY":200}
+      },
+      "doors":[
+        {"direction":"kitchen"}
+        {"posX":350,
+        "posY":0}
+      ]
     }
   },
   "kitchen":{
     "items":{
-      "fridge":{
+      "furniture":{
+        "fridge":{
+          "posX":0,
+          "posY":500},
+        "sink":{
+          "posX":200,
+          "posY":10}
+      },
+      "doors":[
+        {"direction":"bedroom",
         "posX":0,
-        "posY":500},
-      "sink":{
-        "posX":200,
-        "posY":10}
+        "posY":250},
+        {"direction":"street",
+        "posX":750,
+        "posY":250}
+      ]
     }
   }
 }

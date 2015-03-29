@@ -4,10 +4,7 @@ import 'dart:html';
 import 'classes/room.dart';
 
 void main() {
-  DivElement main = querySelector('#main');
-  CanvasElement canvas = new CanvasElement(width: 800, height: 600);
-  CanvasRenderingContext2D context = canvas.context2D;
-  main.append(canvas);
+
   Room current = new Room('kitchen');
   current.drawRoom(context);
 }

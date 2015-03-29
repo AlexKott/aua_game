@@ -5,10 +5,13 @@ import 'room.dart';
 
 class Door extends Item {
   Room direction;
-  String lockMessage;
+  int width = 50;
+  int height = 50;
   String color;
-  
+
   changeRoom() {
-    
+
   }
+
+  Door ();
 }
