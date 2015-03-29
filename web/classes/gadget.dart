@@ -3,6 +3,11 @@ library Gadget;
 import 'item.dart';
 
 class Gadget extends Item {
-  List messages;
+  String name;
   String color;
+  List messages;
+  
+  
+  Gadget({String this.name, int posX, int posY}) : super(posX, posY);
+  
 }

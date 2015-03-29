@@ -1,18 +1,13 @@
 library Item;
 
 abstract class Item {
-  int _positionX;
-  int _positionY;
+  int posX;
+  int posY;
   int width;
   int height;
   // TODO image
   
-  setPosition(posX, posY) {
-    
-  }
+  Item(this.posX, this.posY);
   
-  checkGameState() {
-    
-  }
-    
+  
 }
