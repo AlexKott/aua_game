@@ -9,8 +9,8 @@ void main() {
   Canvas.create();
   
   GameData.initialise();
-  
-  new Room('kitchen');
+
+  Room.setRoom('bedroom');
 }
 
 
