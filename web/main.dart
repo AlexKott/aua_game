@@ -6,9 +6,9 @@ import 'classes/gamedata.dart';
 import 'classes/canvas.dart';
 
 void main() {  
-  GameData.initialise();
-  
   Canvas.create();
+  
+  GameData.initialise();
   
   new Room('kitchen');
 }

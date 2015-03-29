@@ -22,25 +22,38 @@ abstract class GameData {
   }
   
   static initialise() {
-    _getData('rooms', (roomsData) => _rooms = roomsData);
+    DivElement status = querySelector('#status');
+    status.text = 'Building your house ...';
     
-    _getData('items', (itemsData) => _items = itemsData);
+    _getData('rooms', (roomsData) {
+      status.text = 'Decorating rooms ...';
+      _rooms = roomsData;
+    });
     
-    _getData('messages', (messagesData) => _messages = messagesData);
+    _getData('items', (itemsData) {
+      status.text = 'Predicting the future ...';      
+      _items = itemsData;
+    });
+    
+    _getData('messages', (messagesData) {
+      status.text = 'Done!';
+      status.text = '';
+      _messages = messagesData;
+    });
    }
   
   
   static _getData (String mapName, callback(data)) {
     HttpRequest xhr = new HttpRequest();
-      xhr.open('GET', 'content/$mapName.json', async: false);
-      xhr.onReadyStateChange.listen((e) {
-        if (xhr.readyState == HttpRequest.DONE && xhr.status == 200) {
-          Map data = JSON.decode(e.target.response);
-          callback(data);
-        }
-      });
-      xhr.onError.listen((e) => window.alert('ERROR'));
-      xhr.send();
+    xhr.open('GET', 'content/$mapName.json', async: false);
+    xhr.onReadyStateChange.listen((e) {
+      if (xhr.readyState == HttpRequest.DONE && xhr.status == 200) {
+        Map data = JSON.decode(e.target.response);
+        callback(data);
+      }
+    });
+    xhr.onError.listen((e) => window.alert('ERROR'));
+    xhr.send();
   }
   
   
