@@ -11,11 +11,11 @@
           "posX":530,
           "posY":33}
       },
-      "doors":[
-        {"direction":"kitchen",
-        "posX":100,
-        "posY":0}
-      ]
+      "doors":{
+        "kitchen":{
+          "posX":100,
+          "posY":0}
+      }
     }
   },
   "kitchen":{
@@ -28,14 +28,14 @@
           "posX":200,
           "posY":0}
       },
-      "doors":[
-        {"direction":"bedroom",
-        "posX":0,
-        "posY":150},
-        {"direction":"street",
-        "posX":500,
-        "posY":150}
-      ]
+      "doors":{
+        "bedroom":{
+          "posX":0,
+          "posY":150},
+        "street":{
+          "posX":500,
+          "posY":150}
+      }
     }
   }
 }

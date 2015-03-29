@@ -10,7 +10,7 @@ void main() {
   
   Canvas.create();
   
-  new Room('kitchen');
+  Room.setRoom('bedroom');
 }
 
 
