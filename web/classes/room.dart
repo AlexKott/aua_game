@@ -40,19 +40,28 @@ abstract class Room {
     }
   
     
-    _drawRoom(Canvas.context);
+    _drawRoom();
     
   }
   
   
-  static _drawRoom(CanvasRenderingContext2D context) {
+  static _drawRoom() {
     int itemsLength = _items.length;
     
     for (int i = 0; i < itemsLength; i++) {
       Item it = _items[i];
       
-      context.strokeRect(it.posX, it.posY, it.width, it.height);
+      Canvas.context.strokeRect(it.posX, it.posY, it.width, it.height);
     }
+  }
+  
+  static _clearRoom() {
+    Canvas.context.clearRect(0, 0, 600, 400);
+  }
+  
+  static reDrawRoom() {
+    _clearRoom();
+    _drawRoom();
   }
   
   static setRoom(String roomName) {
