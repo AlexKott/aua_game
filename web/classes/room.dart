@@ -15,6 +15,13 @@ abstract class Room {
   static List<Item> _items = new List<Item>();
   static Map _rooms = GameData.rooms;
   
+  static get name {
+    return _name;
+  }
+  
+  static get items {
+    return _items;
+  }
   
   static _decorateRoom() {
     
