@@ -4,6 +4,7 @@ import 'dart:html';
 import 'gamedata.dart';
 import 'furniture.dart';
 import 'gadget.dart';
+import 'door.dart';
 import 'canvas.dart';
 
 
@@ -12,6 +13,7 @@ class Room {
   Map roomItems;
   List<Furniture> furniture = new List<Furniture>();
   List<Gadget> gadgets = new List<Gadget>();
+  List<Door> doors = new List<Door>();
   Map rooms = GameData.rooms;
   
   
@@ -31,6 +33,17 @@ class Room {
       });
     }
     
+    // fill up with doors
+    if (roomItems.containsKey('doors')) {
+      int doorsLength = roomItems['doors'].length;
+            
+      for (int i = 0; i < doorsLength; i++) {
+        var d = roomItems['doors'][i];
+        doors.add(new Door(direction: d['direction'], posX: d['posX'], posY: d['posY']));
+      }
+      
+    }
+    
     drawRoom(Canvas.context);
     
   }
@@ -39,6 +52,7 @@ class Room {
   drawRoom(CanvasRenderingContext2D context) {
     int furnitureLength = furniture.length;
     int gadgetsLength = gadgets.length;
+    int doorsLength = doors.length;
     
     for (int i = 0; i < furnitureLength; i++) {
       Furniture f = furniture[i];
@@ -51,6 +65,11 @@ class Room {
       
       context.strokeRect(g.posX, g.posY, g.width, g.height);
       
+    }
+    for (int k = 0; k < doorsLength; k++) {
+      Door d = doors[k];
+     
+      context.strokeRect(d.posX, d.posY, d.width, d.height);
     }
   }
   
