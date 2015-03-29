@@ -12,7 +12,7 @@ abstract class Canvas {
   
   static create() {
     DivElement main = querySelector('#main');
-    CanvasElement canvas = new CanvasElement(width: 800, height: 600);
+    CanvasElement canvas = new CanvasElement(width: 600, height: 400);
     _context = canvas.context2D;
     main.append(canvas);
   } 

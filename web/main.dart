@@ -3,15 +3,14 @@
 
 import 'classes/room.dart';
 import 'classes/gamedata.dart';
-// import 'classes/canvas.dart';
+import 'classes/canvas.dart';
 
 void main() {
- // Canvas.create();
-  
   GameData.initialise();
   
+  Canvas.create();
+  
   new Room('bedroom');
- // current.drawRoom(Canvas.context);
 }
 
 

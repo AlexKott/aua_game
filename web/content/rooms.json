@@ -12,8 +12,8 @@
           "posY":200}
       },
       "doors":[
-        {"direction":"kitchen"}
-        {"posX":350,
+        {"direction":"kitchen",
+        "posX":350,
         "posY":0}
       ]
     }

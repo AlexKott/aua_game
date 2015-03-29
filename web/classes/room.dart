@@ -4,6 +4,7 @@ import 'dart:html';
 import 'gamedata.dart';
 import 'furniture.dart';
 import 'gadget.dart';
+import 'canvas.dart';
 
 
 class Room {
@@ -30,22 +31,27 @@ class Room {
       });
     }
     
-    print(furniture);
-    print(gadgets);
+    drawRoom(Canvas.context);
     
   }
   
   
   drawRoom(CanvasRenderingContext2D context) {
-    roomItems.forEach((k, v) {
+    int furnitureLength = furniture.length;
+    int gadgetsLength = gadgets.length;
+    
+    for (int i = 0; i < furnitureLength; i++) {
+      Furniture f = furniture[i];
       
-      int posX = roomItems[k]['posX'];
-      int posY = roomItems[k]['posY'];
+      context.strokeRect(f.posX, f.posY, f.width, f.height);
       
+    }
+    for (int j = 0; j < gadgetsLength; j++) {
+      Gadget g = gadgets[j];
       
-      context.fillText(k,  posX,  posY);
-     
-    });
+      context.strokeRect(g.posX, g.posY, g.width, g.height);
+      
+    }
   }
   
   Room(String roomName) {
