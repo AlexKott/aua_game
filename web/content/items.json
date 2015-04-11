@@ -1,17 +1,26 @@
 {
   "furniture":{
+
     "bed":{
       "width":300,
       "height":200},
+
     "fridge":{
       "width":100,
       "height":100},
+
     "sink":{
       "width":150,
       "height":100}
   },
+
   "gadgets":{
+
     "phone":{
+      "width":30,
+      "height":30},
+
+    "milkCan":{
       "width":30,
       "height":30}
   }

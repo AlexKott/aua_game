@@ -1,12 +1,8 @@
 {
   "bedroom": {
-    "bed":["hasSlept"],
-    "callMum":["calledMum"]
+
   },
   "kitchen": {
-    "callMum": ["drankMilk"]
-  },
-  "grandma": {
-    "bed": ["isTired"]
+    "sink":["drankWater"]
   }
 }
