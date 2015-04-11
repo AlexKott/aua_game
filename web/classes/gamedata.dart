@@ -8,7 +8,7 @@ abstract class GameData {
   static Map _rooms = new Map();
   static Map _items = new Map();
   static Map _messages = new Map();
-  static Map _gamestates = new Map();
+  static Map _gamestateConditions = new Map();
   
   static get rooms {
     return _rooms;
@@ -22,8 +22,8 @@ abstract class GameData {
     return _messages;
   }
   
-  static get gamestates {
-    return _gamestates;
+  static get gamestateConditions {
+    return _gamestateConditions;
   }
   
   static initialise() {
@@ -45,10 +45,20 @@ abstract class GameData {
       _messages = messagesData;
     });
     
-    _getData('gamestates', (gamestatesData) {
-      status.text = '';
-      _gamestates = gamestatesData;
+    _getData('choices', (choicesData) {
+      status.text = 'Checking weather conditions ...';
+      _messages = choicesData;
     });
+    
+    _getData('gamestate_conditions', (gamestateCondData) {
+      status.text = '';
+      _gamestateConditions = gamestateCondData;
+    });
+    
+    _getData('gamestate_changers', (gamestateChangeData) {
+          status.text = '';
+          _gamestateConditions = gamestateChangeData;
+        });
    }
   
   

@@ -1,17 +1,26 @@
 {
   "bedroom":{
-    "bed":{
-      "drankWater":"I'll go to sleep.",
-      "default":"I'm too thirsty."},
-    "phone":{
-      "default":"Who am I gonna call?"}
+    "bed":
+    [
+      {"drankWater":["I'll go to sleep.", "I'm really tired"] },
+      {"gameLoaded":"I'm too thirsty."}
+    ],
+    "phone":
+    [
+      {"drankWater":["I drank water", {"choice":"choiceSuspect"} ] },
+      {"gameLoaded":"Who am I gonna call?"}
+    ]
   },
   "kitchen":{
-    "fridge":{
-      "drankWater":"I'm not hungry.",
-      "default":"Let's have a glass of milk!"},
-    "sink":{
-      "drankWater":"I feel tired now.",
-      "default":"Water! Finally! That feels good."}
+    "fridge":
+    [
+      {"drankWater":"I'm not hungry."},
+      {"gameLoaded":"Let's have a glass of milk!"}
+    ],
+    "sink":
+    [
+      {"drankWater":"I feel tired now."},
+      {"gameLoaded":"Water! Finally! That feels good."}
+    ]
   }
 }

@@ -35,6 +35,8 @@ abstract class Canvas {
     
     // TODO: if no element was clicked, check if message is active,
     // if message is active, hide message
+    // TODO: if message active && message == choice
+    // check which choice was clicked. do not fall back to items!
     
     for (int i = 0; i < itemsLength; i++) {
       Item it = items[i];
@@ -43,7 +45,6 @@ abstract class Canvas {
           && clickY < it.posY + it.height
           && clickX > it.posX
           && clickX < it.posX + it.width) {
-        
         
         if(it is Door) {
           Room.setRoom(it.direction);

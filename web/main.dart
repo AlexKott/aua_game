@@ -5,7 +5,13 @@ import 'classes/room.dart';
 import 'classes/gamedata.dart';
 import 'classes/canvas.dart';
 
+import 'tests.dart';
+
+
 void main() {  
+  
+  testrunner();
+  
   Canvas.create();
   
   GameData.initialise();

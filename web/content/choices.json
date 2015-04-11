@@ -1,0 +1,7 @@
+{
+  "bedroom": {
+    "bed": ["hasSlept", "quitGame"],
+    "choiceSuspect1": ["gameWon"],
+    "choiceSuspect2": ["tryingToCheat"]
+    
+}

@@ -12,9 +12,10 @@ abstract class Message {
   static bool _isMessageActive = false;
   
   static void toggleMessage ({String room, String trigger}) {
-    Map<String, String> messageRange;
+    List<Map> messageRange;
     
     if (_isMessageActive) {
+      // TODO: is message a choice?
       _hideMessage();
     }
 
@@ -25,15 +26,32 @@ abstract class Message {
   }
   
   static void _showMessage(messageRange) {
+    
+    int messageRangeLength = messageRange.length;
 
-    if (messageRange.length > 1) {
-      
-      // TODO for each option state check
-      
-      _messageText = messageRange['default'];
+    if (messageRangeLength == 1) {
+      messageRange[0].forEach((k, v) { 
+        _messageText = v;
+      });
     }
     else {
-      _messageText = messageRange['default'];
+
+      for (int i = 0; i < messageRangeLength; i++) {
+        String state;
+        String message;
+        
+        messageRange[i].forEach((k, v) { 
+          state = k;
+          message = v;
+        });
+        
+        if(GameState.checkState(state)) {
+          _messageText = message;
+          // TODO: is message list or string? -> choice or message
+          break;
+        }
+      }
+      
     }
     
     if (!_isMessageActive) {
