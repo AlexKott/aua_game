@@ -102,7 +102,7 @@ abstract class Room {
         }
         
         else {
-          Message.toggleMessage(room: Room.name, trigger: it.name);
+          Message.toggleMessage(room: _name, trigger: it.name);
           break;
         }
       }

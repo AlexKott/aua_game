@@ -15,9 +15,11 @@ abstract class Message {
   
   
   static void toggleMessage ({String room, String trigger}) {
-    List<Map> messageRange;
+    var messageRange;
+    
     
     messageRange = GameData.messages[room][trigger];
+    
     _messageList = _pickMessage(messageRange);
     _defineMessage();
   }
@@ -42,6 +44,8 @@ abstract class Message {
       
       else {
         for (int i = 0; i < messageRangeLength; i++) {
+          
+          print(messageRange);
           
           messageRange[i].forEach((state, list) { 
             if(GameState.checkState(state)) {

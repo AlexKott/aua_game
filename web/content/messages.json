@@ -2,7 +2,7 @@
   "bedroom":{
 
     "bed":[
-      {"answeredPhone":["I can't go back to bed. I have to visit my grandma now."]}
+      {"answeredPhone":["I can't go back to bed. I have to visit my grandma now."]},
       {"drankWater":
         ["Yes, back to bed where I belong.",
           {"choice":"bed"}]},
@@ -10,7 +10,7 @@
     ],
 
     "phone":[
-      {"answeredPhone":["I tried to call grandma. She's not answering."]}
+      {"answeredPhone":["I tried to call grandma. She's not answering."]},
       {"drankWater":["Who should I call at this time of night?"]},
       {"gameLoaded":["I really need something to drink before I call someone. It's the middle of the night, anyway."]}
     ],
@@ -26,13 +26,13 @@
   "kitchen":{
 
     "fridge":[
-      {"answeredPhone":["I'd love some breakfast. Unfortunately I won't find any in here."]}
+      {"answeredPhone":["I'd love some breakfast. Unfortunately I won't find any in here."]},
       {"drankWater":["Nothing left in here. Or I just don't see anything through my half-closed eyes. Who knows?"]},
       {"gameLoaded":[{"choice":"fridge"}]}
     ],
 
     "sink":[
-      {"answeredPhone":["Lovely sink, you saved my life tonight. But I'm not thirsty right now."]}
+      {"answeredPhone":["Lovely sink, you saved my life tonight. But I'm not thirsty right now."]},
       {"drankWater":["I've vanquished my thirst! Now I'm really tired."]},
       {"gameLoaded":["Water! Finally! Damn, that feels good."]}
     ]

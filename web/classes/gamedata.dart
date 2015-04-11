@@ -57,7 +57,7 @@ abstract class GameData {
     
     _getData('choices', (choicesData) {
       status.text = 'Checking weather conditions ...';
-      _messages = choicesData;
+      _choices = choicesData;
     });
     
     _getData('gamestate_conditions', (gamestateCondData) {

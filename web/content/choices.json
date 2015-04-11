@@ -8,7 +8,7 @@
         {"later":"Leave me alone, I need to sleep!"}],
       "impact":{
         "answer":{"gamestate":"answeredPhone", "message":"phoneMom"},
-        "later":{"choice":"noPhone"}},
+        "later":{"choice":"noPhone"}}
     },
 
     "noPhone": {

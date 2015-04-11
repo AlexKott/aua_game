@@ -10,8 +10,6 @@ import 'tests.dart';
 
 void main() {  
   
-  testrunner();
-  
   Canvas.create();
   
   GameData.initialise();
