@@ -1,12 +1,8 @@
 {
-  "drankWater": {
-    "states": [
-      "gameLoaded"
-    ]
+  "bedroom": {
+
   },
-  "answeredPhone": {
-    "states":[
-      "drankWater"
-    ]
+  "kitchen": {
+    "sink":["drankWater"]
   }
 }
