@@ -1,12 +1,12 @@
 {
-  "drankWater": {
-    "states": [
-      "gameLoaded"
-    ]
+  "bedroom": {
+    "bed":["hasSlept"],
+    "callMum":["calledMum"]
   },
-  "answeredPhone": {
-    "states":[
-      "drankWater"
-    ]
+  "kitchen": {
+    "callMum": ["drankMilk"]
+  },
+  "grandma": {
+    "bed": ["isTired"]
   }
 }

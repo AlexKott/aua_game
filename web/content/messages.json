@@ -2,14 +2,14 @@
   "bedroom":{
     "bed":
     [
-      {"drankWater":["I'll go to sleep.", "I'm really tired"] },
+      {"drankWater":["I'll go to sleep.", {"choice":"bed"}] },
       {"gameLoaded":"I'm too thirsty."}
     ],
     "phone":
     [
       {"drankWater":["I drank water", {"choice":"choiceSuspect"} ] },
       {"gameLoaded":"Who am I gonna call?"}
-    ]
+    ]    
   },
   "kitchen":{
     "fridge":

@@ -4,75 +4,91 @@ import 'gamedata.dart';
 import 'gamestates.dart';
 import 'canvas.dart';
 import 'room.dart';
+import 'choice.dart';
 
 
 abstract class Message {
-
-  static String _messageText;
-  static bool _isMessageActive = false;
+  
+  static bool isMessageActive = false;
+  static int _activeMessage = 0;
+  static List _messageList;
+  
   
   static void toggleMessage ({String room, String trigger}) {
     List<Map> messageRange;
     
-    if (_isMessageActive) {
-      // TODO: is message a choice?
-      _hideMessage();
-    }
-
-    else {
-      messageRange = GameData.messages[room][trigger];
-      _showMessage(messageRange);
-    }
+    messageRange = GameData.messages[room][trigger];
+    _messageList = _pickMessage(messageRange);
+    _defineMessage();
   }
   
-  static void _showMessage(messageRange) {
+  
+  static void nextMessage() {
+    _activeMessage++;
+    _defineMessage();
+  }
+  
+  // depending on the game state this one selects a list of messages 
+  static List _pickMessage(messageRange) {
     
     int messageRangeLength = messageRange.length;
+    List messageList = new List();
 
-    if (messageRangeLength == 1) {
-      messageRange[0].forEach((k, v) { 
-        _messageText = v;
-      });
-    }
-    else {
-
-      for (int i = 0; i < messageRangeLength; i++) {
-        String state;
-        String message;
-        
-        messageRange[i].forEach((k, v) { 
-          state = k;
-          message = v;
+      if (messageRangeLength == 1) { // the default value
+        messageRange[0].forEach((k, v) { 
+          messageList = v;
         });
-        
-        if(GameState.checkState(state)) {
-          _messageText = message;
-          // TODO: is message list or string? -> choice or message
-          break;
+      }
+      
+      else {
+        for (int i = 0; i < messageRangeLength; i++) {
+          
+          messageRange[i].forEach((state, list) { 
+            if(GameState.checkState(state)) {
+              messageList = list;
+            }
+          });
+          
+          if(messageList.length != 0) { // messages loaded
+            break;
+          }
         }
       }
       
-    }
-    
-    if (!_isMessageActive) {
-      Canvas.context.setFillColorRgb(255, 255, 255);
-      Canvas.context.setStrokeColorRgb(0, 0, 0);
-      Canvas.context.fillRect(100, 100, 400, 150);
-      Canvas.context.strokeRect(100, 100, 400, 150);
-      _isMessageActive = true;
-    }
-    
-    // TODO: else -> continuous messages, message chains, choices.
-    // redraw message block;
-    
-    Canvas.context.setFillColorRgb(0, 0, 0);
-    Canvas.context.fillText(_messageText, 120, 120);
-    
+      return messageList;
   }
+  
+  
+  static void _defineMessage() {
+    if(_messageList.length == _activeMessage) { // was the last message
+      _hideMessage();
+    }
+    
+    else if(_messageList[_activeMessage] is String) { // is a new message
+      _showMessage(_messageList[_activeMessage]);
+    }
+    else {                                        // is a choice
+      Choice.toggleChoice(_messageList[_activeMessage]['choice']);
+    }
+  }
+  
+
+  
+  static void _showMessage(String messageText) {
+    
+    if (!isMessageActive) {
+      isMessageActive = true;
+    }
+    
+    Canvas.drawMessageBoard();
+    Canvas.drawMessage(messageText);    
+  }
+  
   
   static void _hideMessage() {
     Room.reDrawRoom();
-    _isMessageActive = false;
+    _activeMessage = 0;
+    isMessageActive = false;
   }
   
 }

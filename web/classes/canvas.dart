@@ -2,9 +2,8 @@ library Canvas;
 
 import 'dart:html';
 import 'message.dart';
+import 'choice.dart';
 import 'room.dart';
-import 'item.dart';
-import 'door.dart';
 
 abstract class Canvas {
   
@@ -30,32 +29,34 @@ abstract class Canvas {
   }
   
   static void _triggerEvent(int clickX, int clickY) {
-    List<Item> items = Room.items;
-    int itemsLength = items.length;
     
-    // TODO: if no element was clicked, check if message is active,
-    // if message is active, hide message
-    // TODO: if message active && message == choice
-    // check which choice was clicked. do not fall back to items!
+    if (Message.isMessageActive) {
+      Message.nextMessage();
+    }
     
-    for (int i = 0; i < itemsLength; i++) {
-      Item it = items[i];
-      
-      if(clickY > it.posY
-          && clickY < it.posY + it.height
-          && clickX > it.posX
-          && clickX < it.posX + it.width) {
-        
-        if(it is Door) {
-          Room.setRoom(it.direction);
-          break;
-        }
-        
-        else {
-          Message.toggleMessage(room: Room.name, trigger: it.name);
-          break;
-        }
-      }
+    else if (Choice.isChoiceActive) {
+      Choice.submitChoice(clickX, clickY); 
+    }
+    
+    else {    
+      Room.roomAction(clickX, clickY);
     }
   }
+  
+  static void drawMessageBoard() {
+    _context.setFillColorRgb(255, 255, 255);
+    _context.setStrokeColorRgb(0, 0, 0);
+    _context.fillRect(100, 100, 400, 150);
+    _context.strokeRect(100, 100, 400, 150);
+  }
+  
+  static void drawMessage(String text) {
+    _context.setFillColorRgb(0, 0, 0);
+    _context.fillText(text, 120, 120);
+  }
+  
+  static void drawChoices(List options) {
+    
+  } 
+  
 }

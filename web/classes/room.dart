@@ -6,6 +6,7 @@ import 'furniture.dart';
 import 'gadget.dart';
 import 'door.dart';
 import 'canvas.dart';
+import 'message.dart';
 
 
 abstract class Room {
@@ -77,8 +78,38 @@ abstract class Room {
     _name = roomName;
     _roomItems = _rooms[roomName]['items'];
     _decorateRoom();
+  }
+  
+  static roomAction(int clickX, int clickY) {
     
-    }  
+    int itemsLength = items.length;
+    
+    for (int i = 0; i < itemsLength; i++) {
+      Item it = items[i];
+      
+      if(clickY > it.posY
+          && clickY < it.posY + it.height
+          && clickX > it.posX
+          && clickX < it.posX + it.width) {
+        
+        // TODO: check gamestate changers for clicked item
+        
+        if(it is Door) {
+          
+          // TODO: check if door is accessible
+          Room.setRoom(it.direction);
+          break;
+        }
+        
+        else {
+          Message.toggleMessage(room: Room.name, trigger: it.name);
+          break;
+        }
+      }
+    }
+  }
+  
+  
 }
 
 
