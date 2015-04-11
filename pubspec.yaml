@@ -1,7 +1,7 @@
-name: aua_game
+name: rooms
 version: 0.0.1
 description: |
-  An absolute bare-bones web app.
+  A simple Dart game.
 environment:
   sdk: '>=1.0.0 <2.0.0'
 dependencies:

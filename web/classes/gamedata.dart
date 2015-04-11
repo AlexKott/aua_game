@@ -46,7 +46,6 @@ abstract class GameData {
     });
     
     _getData('gamestates', (gamestatesData) {
-      status.text = 'Done!';
       status.text = '';
       _gamestates = gamestatesData;
     });

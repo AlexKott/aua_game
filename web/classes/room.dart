@@ -1,6 +1,5 @@
 library Room;
 
-import 'dart:html';
 import 'gamedata.dart';
 import 'item.dart';
 import 'furniture.dart';
@@ -72,6 +71,7 @@ abstract class Room {
   }
   
   static setRoom(String roomName) {
+    // TODO: check if room is accessible
     _clearRoom();
     _items.clear();
     _name = roomName;

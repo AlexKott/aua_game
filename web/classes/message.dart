@@ -1,8 +1,10 @@
 library Message;
 
 import 'gamedata.dart';
+import 'gamestates.dart';
 import 'canvas.dart';
 import 'room.dart';
+
 
 abstract class Message {
 
@@ -10,30 +12,28 @@ abstract class Message {
   static bool _isMessageActive = false;
   
   static void toggleMessage ({String room, String trigger}) {
-    Map<String, String> messageOptions;
+    Map<String, String> messageRange;
     
-    if (_isMessageActive) _hideMessage();
+    if (_isMessageActive) {
+      _hideMessage();
+    }
 
     else {
-      try {
-        messageOptions = GameData.messages[room][trigger];
-        _showMessage(messageOptions);
-      }
-      catch (e) {
-        Room.setRoom(trigger);
-      }
+      messageRange = GameData.messages[room][trigger];
+      _showMessage(messageRange);
     }
   }
   
-  static void _showMessage(_messageOptions) {
+  static void _showMessage(messageRange) {
 
-    
-    if (_messageOptions.length > 1) {
-      // TODO State check and choose message
-      _messageText = _messageOptions['default'];
+    if (messageRange.length > 1) {
+      
+      // TODO for each option state check
+      
+      _messageText = messageRange['default'];
     }
     else {
-      _messageText = _messageOptions['default'];
+      _messageText = messageRange['default'];
     }
     
     if (!_isMessageActive) {
@@ -43,6 +43,9 @@ abstract class Message {
       Canvas.context.strokeRect(100, 100, 400, 150);
       _isMessageActive = true;
     }
+    
+    // TODO: else -> continuous messages, message chains, choices.
+    // redraw message block;
     
     Canvas.context.setFillColorRgb(0, 0, 0);
     Canvas.context.fillText(_messageText, 120, 120);

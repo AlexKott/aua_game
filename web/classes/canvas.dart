@@ -4,6 +4,7 @@ import 'dart:html';
 import 'message.dart';
 import 'room.dart';
 import 'item.dart';
+import 'door.dart';
 
 abstract class Canvas {
   
@@ -22,23 +23,18 @@ abstract class Canvas {
   } 
   
   static void _getPosition(event) {
-    String trigger;
-    int clickX = event.clientX - event.currentTarget.offsetLeft;
-    int clickY = event.clientY - event.currentTarget.offsetTop;
+    int clickX = event.client.x - event.currentTarget.offsetLeft;
+    int clickY = event.client.y - event.currentTarget.offsetTop;
     
-    trigger = _getTriggerElement(clickX, clickY);
-    
-    
-    if (trigger != '') {
-      Message.toggleMessage(room: Room.name, trigger: trigger);  
-    }
-    
+    _triggerEvent(clickX, clickY);    
   }
   
-  static String _getTriggerElement(int clickX, int clickY) {
-    String trigger = '';
+  static void _triggerEvent(int clickX, int clickY) {
     List<Item> items = Room.items;
     int itemsLength = items.length;
+    
+    // TODO: if no element was clicked, check if message is active,
+    // if message is active, hide message
     
     for (int i = 0; i < itemsLength; i++) {
       Item it = items[i];
@@ -47,21 +43,18 @@ abstract class Canvas {
           && clickY < it.posY + it.height
           && clickX > it.posX
           && clickX < it.posX + it.width) {
-        try {
-          trigger = it.name;  
-        }
-        catch (e) {
-          trigger = it.direction;
+        
+        
+        if(it is Door) {
+          Room.setRoom(it.direction);
+          break;
         }
         
-        break;
+        else {
+          Message.toggleMessage(room: Room.name, trigger: it.name);
+          break;
+        }
       }
     }
-    
-    return trigger;
-    
   }
-  
-  
-  
 }

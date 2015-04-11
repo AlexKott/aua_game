@@ -10,7 +10,7 @@ void main() {
   
   GameData.initialise();
 
-  Room.setRoom('kitchen');
+  Room.setRoom('bedroom');
 }
 
 

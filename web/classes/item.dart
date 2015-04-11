@@ -5,6 +5,7 @@ abstract class Item {
   int posY;
   int width;
   int height;
+  String name;
   // TODO image
   
   Item(this.posX, this.posY);
