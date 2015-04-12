@@ -158,12 +158,13 @@ abstract class Room {
         
         else {
           
+          Message.toggleMessage(room: _name, trigger: it.name);
+          
           // check if item is a gamestate changer
           if (GameData.gamestateChangers.containsKey(_name) && GameData.gamestateChangers[_name].containsKey(it.name)) {
             GameState.setState(GameData.gamestateChangers[_name][it.name]);
           }
           
-          Message.toggleMessage(room: _name, trigger: it.name);
           break;
         }
       }
