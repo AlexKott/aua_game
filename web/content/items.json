@@ -11,7 +11,11 @@
 
     "sink":{
       "width":150,
-      "height":100}
+      "height":100},
+
+    "sofa":{
+      "width":80,
+      "height":150}
   },
 
   "gadgets":{

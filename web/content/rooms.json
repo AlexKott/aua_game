@@ -3,19 +3,19 @@
 
     "items":{
 
-      "furniture":{
+      "furniture":[
 
-        "bed":{
+        {"name":"bed",
           "posX":300,
           "posY":100}
-      },
+      ],
 
-      "gadgets":{
+      "gadgets":[
 
-        "phone":{
+        {"name":"phone",
           "posX":530,
           "posY":33}
-      },
+      ],
 
       "doors":{
 
@@ -30,16 +30,16 @@
 
     "items":{
 
-      "furniture":{
+      "furniture":[
 
-        "fridge":{
+        {"name":"fridge",
           "posX":100,
           "posY":300},
 
-        "sink":{
+        {"name":"sink",
           "posX":200,
           "posY":0}
-      },
+      ],
 
       "doors":{
 
@@ -58,16 +58,16 @@
 
     "items":{
 
-      "gadgets":{
+      "gadgets":[
 
-        "milkCan":{
+        {"name":"milkCan",
           "posX":150,
-          "posY":350},
+          "posY":300},
 
-        "milkCan":{
+        {"name":"milkCan",
           "posX":250,
-          "posY":30}
-      },
+          "posY":50}
+      ],
 
       "doors":{
 
@@ -79,6 +79,25 @@
           "posX":300,
           "posY":0}
       }
+    }
+  },
+
+  "grandmaHouse":{
+
+    "items":{
+
+      "furniture":[
+
+        {"name":"sofa",
+          "posX":0,
+          "posY":100}
+      ],
+
+      "doors":{
+
+        "street":{
+          "posX":200,
+          "posY":300}
     }
   }
 }
