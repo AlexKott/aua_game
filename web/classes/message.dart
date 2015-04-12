@@ -16,8 +16,7 @@ abstract class Message {
   
   static void toggleMessage ({String room, String trigger}) {
     var messageRange;
-    
-    
+        
     messageRange = GameData.messages[room][trigger];
     
     _messageList = _pickMessage(messageRange);
@@ -45,8 +44,6 @@ abstract class Message {
       else {
         for (int i = 0; i < messageRangeLength; i++) {
           
-          print(messageRange);
-          
           messageRange[i].forEach((state, list) { 
             if(GameState.checkState(state)) {
               messageList = list;
@@ -71,6 +68,7 @@ abstract class Message {
     else if(_messageList[_activeMessage] is String) { // is a new message
       _showMessage(_messageList[_activeMessage]);
     }
+    
     else {                                        // is a choice
       Choice.toggleChoice(_messageList[_activeMessage]['choice']);
     }

@@ -27,16 +27,33 @@ abstract class Room {
     
     // fill up with furniture
     if (_roomItems.containsKey('furniture')) {
-      _roomItems['furniture'].forEach((k, v) {
-        _items.add(new Furniture(name: k, posX: v['posX'], posY: v['posY']));
-      });
+      
+      List furn = _roomItems['furniture'];
+      int furnLength = furn.length;
+      
+      for (int i = 0; i < furnLength; i++) {
+        
+        _items.add(new Furniture(
+            name: furn[i]['name'],
+            posX: furn[i]['posX'],
+            posY: furn[i]['posY']
+            ));
+      }
     }
     
     // fill up with gadgets
     if (_roomItems.containsKey('gadgets')) {
-      _roomItems['gadgets'].forEach((k, v) {
-        _items.add(new Gadget(name: k, posX: v['posX'], posY: v['posY']));
-      });
+      List gadgets = _roomItems['gadgets'];
+      int gadLength = gadgets.length;
+      
+      for (int i = 0; i < gadLength; i++) {
+        
+        _items.add(new Gadget(
+            name: gadgets[i]['name'],
+            posX: gadgets[i]['posX'],
+            posY: gadgets[i]['posY']
+            ));
+      }
     }
     
     // fill up with doors
