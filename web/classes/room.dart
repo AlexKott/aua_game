@@ -4,6 +4,7 @@ import 'gamedata.dart';
 import 'item.dart';
 import 'furniture.dart';
 import 'gadget.dart';
+import 'person.dart';
 import 'door.dart';
 import 'canvas.dart';
 import 'message.dart';
@@ -52,6 +53,21 @@ abstract class Room {
             name: gadgets[i]['name'],
             posX: gadgets[i]['posX'],
             posY: gadgets[i]['posY']
+            ));
+      }
+    }
+    
+    // fill up with persons
+    if (_roomItems.containsKey('persons')) {
+      List persons = _roomItems['persons'];
+      int persLength = persons.length;
+      
+      for (int i = 0; i < persLength; i++) {
+        
+        _items.add(new Person(
+            name: persons[i]['name'],
+            posX: persons[i]['posX'],
+            posY: persons[i]['posY']
             ));
       }
     }
