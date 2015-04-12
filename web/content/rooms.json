@@ -62,11 +62,7 @@
 
         {"name":"milkCan",
           "posX":150,
-          "posY":300},
-
-        {"name":"milkCan",
-          "posX":250,
-          "posY":50}
+          "posY":300}
       ],
 
       "doors":{
@@ -88,8 +84,34 @@
 
       "furniture":[
 
+        {"name":"bed",
+          "posX":300,
+          "posY":0},
+
         {"name":"sofa",
           "posX":0,
+          "posY":100},
+
+        {"name":"fridge",
+          "posX":400,
+          "posY":300}
+      ],
+
+      "gadgets":[
+
+        {"name":"phone",
+          "posX":550,
+          "posY":230},
+
+        {"name":"milkCan",
+          "posX":350,
+          "posY":350}
+      ],
+
+      "persons":[
+
+        {"name":"grandma",
+          "posX":200,
           "posY":100}
       ],
 
