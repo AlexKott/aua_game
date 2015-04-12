@@ -5,10 +5,8 @@ import 'classes/room.dart';
 import 'classes/gamedata.dart';
 import 'classes/canvas.dart';
 
-import 'tests.dart';
 
-
-void main() {  
+void main() {
   
   Canvas.create();
   

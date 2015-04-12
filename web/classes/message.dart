@@ -1,7 +1,7 @@
 library Message;
 
 import 'gamedata.dart';
-import 'gamestates.dart';
+import 'gamestate.dart';
 import 'canvas.dart';
 import 'room.dart';
 import 'choice.dart';
@@ -70,6 +70,7 @@ abstract class Message {
     }
     
     else {                                        // is a choice
+      isMessageActive = false;
       Choice.toggleChoice(_messageList[_activeMessage]['choice']);
     }
   }

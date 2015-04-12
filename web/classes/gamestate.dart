@@ -7,7 +7,7 @@ abstract class GameState {
   // TODO: load states from user cache
   static Map<String, bool> _states = {
     "gameLoaded": true,
-    "drankWater": false,
+    "drankWater": true,
     "answeredPhone": false
   };
   

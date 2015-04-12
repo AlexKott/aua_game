@@ -66,9 +66,9 @@ abstract class GameData {
     });
     
     _getData('gamestate_changers', (gamestateChangeData) {
-          status.text = '';
-          _gamestateConditions = gamestateChangeData;
-        });
+      status.text = '';
+      _gamestateChangers = gamestateChangeData;
+    });
    }
   
   
