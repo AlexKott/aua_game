@@ -35,6 +35,10 @@
       {"answeredPhone":["Lovely sink, you saved my life tonight. But I'm not thirsty right now."]},
       {"drankWater":["I've vanquished my thirst! Now I'm really tired."]},
       {"gameLoaded":["Water! Finally! Damn, that feels good."]}
+    ],
+    
+    "street":[
+      {"gameLoaded":["I'm too tired to take a walk!"]}
     ]
   }
 }

@@ -1,6 +1,7 @@
 library Room;
 
 import 'gamedata.dart';
+import 'gamestate.dart';
 import 'item.dart';
 import 'furniture.dart';
 import 'gadget.dart';
@@ -75,7 +76,14 @@ abstract class Room {
     // fill up with doors
     if (_roomItems.containsKey('doors')) {
       _roomItems['doors'].forEach((k, v) {
-        _items.add(new Door(direction: k, posX: v['posX'], posY: v['posY']));
+        
+        String newState = "gameLoaded"; // default state
+        
+        if (v.containsKey('state')) {
+          newState = v['state']; 
+        }
+        
+        _items.add(new Door(direction: k, state: newState, posX: v['posX'], posY: v['posY']));
       });
     }
   
@@ -105,7 +113,6 @@ abstract class Room {
   }
   
   static setRoom(String roomName) {
-    // TODO: check if room is accessible
     _clearRoom();
     _items.clear();
     _name = roomName;
@@ -125,16 +132,37 @@ abstract class Room {
           && clickX > it.posX
           && clickX < it.posX + it.width) {
         
-        // TODO: check gamestate changers for clicked item
-        
         if(it is Door) {
           
-          // TODO: check if door is accessible
-          Room.setRoom(it.direction);
+          bool isAccessible = true;
+          
+          if (it.state != "gameLoaded") {
+            isAccessible = GameState.checkState(it.state);
+          }
+          
+          if (isAccessible) {
+            
+            // check if door is a gamestate changer
+            if (GameData.gamestateChangers.containsKey(_name) && GameData.gamestateChangers[_name].containsKey(it.direction)) {
+              GameState.setState(GameData.gamestateChangers[_name][it.direction]);
+            }
+            
+            Room.setRoom(it.direction);
+          }
+          else {
+            Message.toggleMessage(room: _name, trigger: it.direction);
+          }
+          
           break;
         }
         
         else {
+          
+          // check if item is a gamestate changer
+          if (GameData.gamestateChangers.containsKey(_name) && GameData.gamestateChangers[_name].containsKey(it.name)) {
+            GameState.setState(GameData.gamestateChangers[_name][it.name]);
+          }
+          
           Message.toggleMessage(room: _name, trigger: it.name);
           break;
         }

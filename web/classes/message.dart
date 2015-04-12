@@ -10,12 +10,14 @@ import 'choice.dart';
 abstract class Message {
   
   static bool isMessageActive = false;
-  static int _activeMessage = 0;
+  static int _activeMessage;
   static List _messageList;
   
   
   static void toggleMessage ({String room, String trigger}) {
     var messageRange;
+    
+    _activeMessage = 0;
         
     messageRange = GameData.messages[room][trigger];
     

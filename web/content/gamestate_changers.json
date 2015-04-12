@@ -3,6 +3,6 @@
 
   },
   "kitchen": {
-    "sink":["drankWater"]
+    "sink":"drankWater"
   }
 }

@@ -48,6 +48,7 @@
           "posY":150},
 
         "street":{
+          "state":"answeredPhone",
           "posX":500,
           "posY":150}
       }
